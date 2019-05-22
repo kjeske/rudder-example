@@ -1,0 +1,24 @@
+table.customers .chip {
+    margin-bottom: 0;
+}
+
+table.customers .table-action {
+    padding: 0;
+}
+
+table.customers .table-action i {
+    cursor: pointer;
+    padding: 6px 0 0 0;
+}
+
+table.customers .table-action .preloader-wrapper {
+    width: 24px;
+    height: 24px;
+}
+
+.loading {
+    display: flex;
+    min-height: 200px;
+    align-items: center;
+    justify-content: center;
+}

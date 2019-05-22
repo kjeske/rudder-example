@@ -1,0 +1,19 @@
+#components-reconnect-modal {
+    width: 408px;
+    height: 92px;
+    margin: 0 auto;
+    color: #fff;
+    background-color: black !important;
+    border-radius: 0 0 8px 8px;
+    bottom: unset !important;
+    height: auto !important;
+    padding-bottom: 10px;
+}
+
+#components-reconnect-modal h5 {
+    font-size: 15px;
+}
+
+#components-reconnect-modal button {
+    display: none !important;
+}

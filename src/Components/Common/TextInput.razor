@@ -1,0 +1,19 @@
+@using RudderExample.Tools
+
+@functions {
+    [Parameter]
+    Field<string> Field { get; set; }
+
+    [Parameter]
+    string Label { get; set; }
+
+    [Parameter]
+    bool AutoFocus { get; set; }
+}
+
+<div class="input-field">
+    <input name="first_name" autofocus=@(AutoFocus ? "autofocus" : null)  placeholder=@Label bind=@Field.Value type="text" class=@(Field.Error != null ? "invalid" : "") />
+    <label for="first_name" class="active">@(Label)</label>
+    <span class="helper-text" data-error=@Field.Error data-success="right"></span>
+</div>
+

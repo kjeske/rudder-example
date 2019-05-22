@@ -1,0 +1,31 @@
+.modal-overlay {
+    z-index: 1002;
+    display: block;
+    opacity: 0;
+}
+
+.modal {
+    display: block;
+    z-index: 1003;
+    max-width: 600px;
+}
+
+.modal-content header {
+    font-size: 25px;
+    display: block;
+    margin: 0 0 39px 0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.modal .dialog-actions {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.modal .dialog-actions button {
+    margin-left: 10px;
+}

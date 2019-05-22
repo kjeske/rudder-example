@@ -1,0 +1,10 @@
+[
+  {
+    "outputFileName": "wwwroot/css/site.css",
+    "inputFiles": [ "Components/**/*.css" ],
+    "minify": {
+      "enabled": true
+    },
+    "sourceMap": true
+  }
+]

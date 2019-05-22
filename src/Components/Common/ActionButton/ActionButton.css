@@ -1,0 +1,11 @@
+.action-button {
+    position: relative;
+}
+
+.action-button .loader {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 8px;
+}

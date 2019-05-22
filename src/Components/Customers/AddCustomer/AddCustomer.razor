@@ -1,0 +1,31 @@
+@inherits StateComponent<AppState, AddCustomerState>
+@using RudderExample.Components.Common.ActionButton
+@using RudderExample.Components.Common.Modal
+
+@functions {
+    AddCustomerForm Form { get; } = new AddCustomerForm();
+
+    async Task Submit()
+    {
+        if (Form.Validate())
+        {
+            await Put(Form.MapToAddAction());
+        }
+    }
+
+    Task Hide() => Put(new CustomersActions.AddDialog.Hide());
+}
+
+<Modal Title="Add customer" OnOverlayClick=@Hide>
+    <form onsubmit=@Submit>
+        <TextInput Field=@Form.Name Label="Name" AutoFocus="true" />
+        <TextInput Field=@Form.Email Label="E-mail" />
+        <TextInput Field=@Form.MobileNumber Label="Mobile number" />
+        <TextInput Field=@Form.Tags Label="Tags" />
+
+        <div class="dialog-actions">
+            <ActionButton Type="submit" IsFetching=@State.IsFetching>Save customer</ActionButton>
+            <ActionButton OnClick=@Hide IsPrimary="false">Cancel</ActionButton>
+        </div>
+    </form>
+</Modal>

@@ -1,0 +1,20 @@
+@functions {
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string Title { get; set; }
+
+    [Parameter]
+    string Icon { get; set; }
+
+    [Parameter]
+    string Color { get; set; }
+
+    [Parameter]
+    Func<Task> OnClick { get; set; }
+}
+
+<a onclick=@OnClick class=@($"btn-floating btn-large waves-effect waves-light {Color}") title=@Title>
+    <i class="material-icons">@Icon</i>
+</a>

@@ -1,0 +1,19 @@
+@functions {
+    [Parameter]
+    private RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    string Title { get; set; }
+
+    [Parameter]
+    EventCallback OnOverlayClick { get; set; }
+}
+
+<div class="modal add-customer-modal">
+    <div class="modal-content">
+        <header>Add customer</header>
+        @ChildContent
+    </div>
+</div>
+
+<div class="modal-overlay" onclick=@OnOverlayClick></div>

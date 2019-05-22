@@ -1,0 +1,57 @@
+@using RudderExample.State.Customers
+
+@functions {
+    [Parameter]
+    ImmutableList<CustomerListItem> Items { get; set; }
+
+    [Parameter]
+    bool IsFetching { get; set; }
+
+    [Parameter]
+    AsyncAction<string> OnRemove { get; set; }
+}
+
+@if (IsFetching)
+{
+    <div class="loading">
+        <Loading Size="big" />
+    </div>
+    return;
+}
+
+<table class="highlight customers">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th style="width: 200px">E-mail</th>
+            <th style="width: 200px">Mobile</th>
+            <th style="width: 50px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Items)
+        {
+            <tr key="@item.Id">
+                <td>
+                    @item.Name
+                    @foreach (var tag in item.Tags)
+                    {
+                        <div class="chip">@tag</div>
+                    }
+                </td>
+                <td>@item.Email</td>
+                <td>@item.MobileNumber</td>
+                <td class="table-action">
+                    @if (item.IsFetching)
+                    {
+                        <Loading Size="small" />
+                    }
+                    else
+                    {
+                        <i class="material-icons" title="Remove" onclick=@(e => OnRemove(item.Id))>clear</i>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

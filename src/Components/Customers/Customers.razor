@@ -1,0 +1,26 @@
+@page "/"
+@inherits StateComponent<AppState, CustomersState>
+@layout MainLayout
+@using RudderExample.Components.Customers.AddCustomer
+@using RudderExample.Components.Customers.CustomersTable
+
+@functions {
+    Task ShowDialog() => Put(new CustomersActions.AddDialog.Show());
+    Task Refresh() => Put(new CustomersActions.FetchItems.Invoke());
+    Task Remove(string id) => Put(new CustomersActions.Remove.Invoke { Id = id });
+}
+
+<div id="header">
+    <div class="title">Customers</div>
+    <div class="actions">
+        <RoundedButton OnClick=@Refresh Title="Refresh" Icon="refresh" />
+        <RoundedButton OnClick=@ShowDialog Title="Add customer" Icon="add" Color="red" />
+    </div>
+</div>
+
+@if (State.ShowAddDialog)
+{
+    <AddCustomer />
+}
+
+<CustomersTable Items=@State.Items IsFetching=@State.IsFetching OnRemove=@Remove />
