@@ -51,6 +51,8 @@ namespace RudderExample
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
+
+            app.UsePathBase("/sample");
         }
     }
 }

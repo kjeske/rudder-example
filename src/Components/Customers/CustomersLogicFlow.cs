@@ -43,6 +43,7 @@ namespace RudderExample.Components.Customers
         {
             await Put(new CustomersActions.FetchItems.Request());
 
+            await Task.Delay(1000); // For testing purposes
             var result = await _customersService.GetCustomers();
 
             await Put(new CustomersActions.FetchItems.Success

@@ -1,5 +1,7 @@
 # Rudder Example
 
+[Visit the online example](https://rudderlib.net/sample/)
+
 ![App](https://raw.githubusercontent.com/kjeske/rudder-example/master/docs/img/app.png)
 
 ## License

@@ -46,11 +46,10 @@ namespace RudderExample.Database
             }
         }
 
-        public async Task<IReadOnlyCollection<CustomerEntity>> GetCustomers()
+        public Task<IReadOnlyCollection<CustomerEntity>> GetCustomers()
         {
-            await Task.Delay(1000);
-
-            return new ReadOnlyCollection<CustomerEntity>(_items);
+            var entities = new ReadOnlyCollection<CustomerEntity>(_items);
+            return Task.FromResult<IReadOnlyCollection<CustomerEntity>>(entities);
         }
 
         private static CustomerEntity CreateItem(string name, string email, string mobileNumber, string tags) => new CustomerEntity

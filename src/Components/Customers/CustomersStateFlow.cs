@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using Rudder;
+using RudderExample.Extensions;
 using RudderExample.State;
 using RudderExample.State.Customers;
 
@@ -47,11 +48,9 @@ namespace RudderExample.Components.Customers
                 case CustomersActions.Remove.Request action:
                     return appState.With(state =>
                     {
-                        var customer = state.Customers.Items.Find(i => i.Id == action.Id);
-                        if (customer != null)
-                        {
-                            customer.IsFetching = true;
-                        }
+                        state.Customers.Items = state.Customers.Items.SetItem(
+                            predicate: customer => customer.Id == action.Id, 
+                            newItem: customer => customer.With(c => c.IsFetching = true));
                     });
 
                 case CustomersActions.Remove.Success action:
