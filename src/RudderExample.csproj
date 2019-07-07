@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="2.9.406" />
-    <PackageReference Include="Rudder" Version="1.0.0-preview1-7081" />
+    <PackageReference Include="Rudder" Version="1.0.0-preview1-7127" />
     <Watch Include="**\*.razor" />
     <Folder Include="wwwroot\css\" />
   </ItemGroup>
