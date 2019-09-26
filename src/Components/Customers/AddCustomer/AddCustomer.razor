@@ -17,7 +17,7 @@
 }
 
 <Modal Title="Add customer" OnOverlayClick=@Hide>
-    <form onsubmit=@Submit>
+    <form @onsubmit=@Submit>
         <TextInput Field=@Form.Name Label="Name" AutoFocus="true" />
         <TextInput Field=@Form.Email Label="E-mail" />
         <TextInput Field=@Form.MobileNumber Label="Mobile number" />

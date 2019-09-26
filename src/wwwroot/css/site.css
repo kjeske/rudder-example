@@ -1,3 +1,18 @@
+body {
+    font-family: Roboto;
+    background-color: #f6f6f6;
+    margin: 20px 0;
+}
+
+.container {
+    background: #fff;
+    padding: 40px;
+    min-height: 600px;
+    box-shadow: #0000000a 1px 1px 6px;
+    border-radius: 4px;
+    min-width: 700px;
+}
+
 #components-reconnect-modal {
     width: 408px;
     height: 92px;
@@ -16,6 +31,27 @@
 
 #components-reconnect-modal button {
     display: none !important;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#header .title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#header .actions {
+    display: flex;
+    align-items: center;
+}
+
+#header .actions a {
+    margin-left: 20px;
 }
 
 .action-button {
@@ -59,41 +95,6 @@
 
 .modal .dialog-actions button {
     margin-left: 10px;
-}
-
-body {
-    font-family: Roboto;
-    background-color: #f6f6f6;
-    margin: 20px 0;
-}
-
-.container {
-    background: #fff;
-    padding: 40px;
-    min-height: 600px;
-    box-shadow: #0000000a 1px 1px 6px;
-    border-radius: 4px;
-}
-
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-#header .title {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-#header .actions {
-    display: flex;
-    align-items: center;
-}
-
-#header .actions a {
-    margin-left: 20px;
 }
 
 table.customers .chip {

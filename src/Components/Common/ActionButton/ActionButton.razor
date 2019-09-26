@@ -1,18 +1,18 @@
 @code {
     [Parameter]
-    private RenderFragment ChildContent { get; set; }
+    public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    string Type { get; set; }
+    public string Type { get; set; }
 
     [Parameter]
-    bool IsFetching { get; set; } = false;
+    public bool IsFetching { get; set; } = false;
 
     [Parameter]
-    bool IsPrimary { get; set; } = true;
+    public bool IsPrimary { get; set; } = true;
 
     [Parameter]
-    Func<Task> OnClick { get; set; }
+    public Func<Task> OnClick { get; set; }
 }
 
 <button type=@Type onclick=@OnClick class=@($"action-button waves-effect waves-light btn-large {(IsPrimary ? "" : "blue-grey lighten-2")}") disabled=@(IsFetching ? "disabled" : null)>

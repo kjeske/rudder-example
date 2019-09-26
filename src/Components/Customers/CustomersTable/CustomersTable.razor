@@ -2,13 +2,13 @@
 
 @code {
     [Parameter]
-    ImmutableList<CustomerListItem> Items { get; set; }
+    public ImmutableList<CustomerListItem> Items { get; set; }
 
     [Parameter]
-    bool IsFetching { get; set; }
+    public bool IsFetching { get; set; }
 
     [Parameter]
-    AsyncAction<string> OnRemove { get; set; }
+    public AsyncAction<string> OnRemove { get; set; }
 }
 
 @if (IsFetching)
@@ -31,7 +31,7 @@
     <tbody>
         @foreach (var item in Items)
         {
-            <tr key="@item.Id">
+            <tr @key="@item.Id">
                 <td>
                     @item.Name
                     @foreach (var tag in item.Tags)
@@ -48,7 +48,7 @@
                     }
                     else
                     {
-                        <i class="material-icons" title="Remove" onclick=@(e => OnRemove(item.Id))>clear</i>
+                        <i class="material-icons" title="Remove" @onclick="@(e => OnRemove(item.Id))">clear</i>
                     }
                 </td>
             </tr>

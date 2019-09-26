@@ -1,18 +1,18 @@
 @code {
     [Parameter]
-    private RenderFragment ChildContent { get; set; }
+    public RenderFragment ChildContent { get; set; }
 
     [Parameter]
-    string Title { get; set; }
+    public string Title { get; set; }
 
     [Parameter]
-    string Icon { get; set; }
+    public string Icon { get; set; }
 
     [Parameter]
-    string Color { get; set; }
+    public string Color { get; set; }
 
     [Parameter]
-    Func<Task> OnClick { get; set; }
+    public Func<Task> OnClick { get; set; }
 }
 
 <a onclick=@OnClick class=@($"btn-floating btn-large waves-effect waves-light {Color}") title=@Title>
