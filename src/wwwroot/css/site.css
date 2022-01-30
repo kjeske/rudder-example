@@ -1,16 +1,7 @@
-body {
+﻿body {
     font-family: Roboto;
     background-color: #f6f6f6;
     margin: 20px 0;
-}
-
-.container {
-    background: #fff;
-    padding: 40px;
-    min-height: 600px;
-    box-shadow: #0000000a 1px 1px 6px;
-    border-radius: 4px;
-    min-width: 700px;
 }
 
 #components-reconnect-modal {
@@ -31,93 +22,4 @@ body {
 
 #components-reconnect-modal button {
     display: none !important;
-}
-
-#header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-#header .title {
-    font-size: 30px;
-    font-weight: bold;
-}
-
-#header .actions {
-    display: flex;
-    align-items: center;
-}
-
-#header .actions a {
-    margin-left: 20px;
-}
-
-.action-button {
-    position: relative;
-}
-
-.action-button .loader {
-    position: absolute;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    top: 8px;
-}
-.modal-overlay {
-    z-index: 1002;
-    display: block;
-    opacity: 0;
-}
-
-.modal {
-    display: block;
-    z-index: 1003;
-    max-width: 600px;
-}
-
-.modal-content header {
-    font-size: 25px;
-    display: block;
-    margin: 0 0 39px 0;
-    font-weight: bold;
-    text-align: center;
-}
-
-.modal .dialog-actions {
-    display: flex;
-    align-content: center;
-    align-items: center;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-.modal .dialog-actions button {
-    margin-left: 10px;
-}
-
-table.customers .chip {
-    margin-bottom: 0;
-}
-
-table.customers .table-action {
-    padding: 0;
-}
-
-table.customers .table-action i {
-    cursor: pointer;
-    padding: 6px 0 0 0;
-}
-
-table.customers .table-action .preloader-wrapper {
-    width: 24px;
-    height: 24px;
-}
-
-.loading {
-    display: flex;
-    min-height: 200px;
-    align-items: center;
-    justify-content: center;
 }

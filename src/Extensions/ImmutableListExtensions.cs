@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Collections.Immutable;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RudderExample.Extensions
 {
     public static class ImmutableListExtensions
     {
-        public static ImmutableList<T> SetItem<T>(this ImmutableList<T> list, Predicate<T> predicate, Func<T, T> newItem)
+        public static IEnumerable<T> Replace<T>(this IEnumerable<T> list, Func<T, bool> predicate, Func<T, T> newItem)
         {
-            var item = list.Find(predicate);
+            var item = list.FirstOrDefault(predicate);
 
             return item != null 
-                ? list.SetItem(list.IndexOf(item), newItem(item)) 
+                ? list.Select(i => i.Equals(item) ? newItem(item) : i) 
                 : list;
         } 
     }

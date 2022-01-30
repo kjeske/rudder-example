@@ -1,26 +1,35 @@
 @page "/"
-@inherits StateComponent<AppState, CustomersState>
+@inherits StateComponent<AppState>
 @layout MainLayout
-@using RudderExample.Components.Customers.AddCustomer
-@using RudderExample.Components.Customers.CustomersTable
-
-@code {
-    Task ShowDialog() => Put(new CustomersActions.AddDialog.Show());
-    Task Refresh() => Put(new CustomersActions.FetchItems.Invoke());
-    Task Remove(string id) => Put(new CustomersActions.Remove.Invoke { Id = id });
-}
 
 <div id="header">
     <div class="title">Customers</div>
     <div class="actions">
-        <RoundedButton OnClick=@Refresh Title="Refresh" Icon="refresh" />
-        <RoundedButton OnClick=@ShowDialog Title="Add customer" Icon="add" Color="red" />
+        <RoundedButton OnClick="@Refresh" Title="Refresh" Icon="refresh" />
+        <RoundedButton OnClick="@ShowDialog" Title="Add customer" Icon="add" Color="red" />
     </div>
 </div>
 
-@if (State.ShowAddDialog)
+@if (showAddDialog)
 {
     <AddCustomer />
 }
 
-<CustomersTable Items=@State.Items IsFetching=@State.IsFetching OnRemove=@Remove />
+<CustomersTable Items="@items" IsFetching="@isFetching" OnRemove="@Remove" />
+
+@code {
+    bool showAddDialog; 
+    bool isFetching;
+    IReadOnlyList<CustomerListItem> items;
+    
+    protected override void OnInitialized()
+    {
+        UseState(state => items = state.Customers.Items);
+        UseState(state => showAddDialog = state.Customers.ShowAddDialog);
+        UseState(state => isFetching = state.Customers.IsFetching);
+    }
+
+    void ShowDialog() => Put(new CustomersActions.AddDialog.Show());
+    void Refresh() => Put(new CustomersActions.FetchItems());
+    void Remove(string id) => Put(new CustomersActions.Remove(id));
+}

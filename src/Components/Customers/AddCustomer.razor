@@ -1,0 +1,36 @@
+@inherits StateComponent<AppState>
+
+<Modal Title="Add customer" OnOverlayClick=@Hide>
+    <form @onsubmit=@Submit>
+        <TextInput Field="@Form.Name" Label="Name" AutoFocus="true" />
+        <TextInput Field="@Form.Email" Label="E-mail" />
+        <TextInput Field="@Form.MobileNumber" Label="Mobile number" />
+        <TextInput Field="@Form.Tags" Label="Tags" />
+
+        <div class="dialog-actions">
+            <ActionButton Type="submit" IsFetching="isSaving">Save customer</ActionButton>
+            <ActionButton OnClick="Hide" IsPrimary="false">Cancel</ActionButton>
+        </div>
+    </form>
+</Modal>
+
+@code {
+    bool isSaving;
+    
+    AddCustomerForm Form { get; } = new();
+
+    void Submit()
+    {
+        if (Form.Validate())
+        {
+            Put(Form.MapToAddAction());
+        }
+    }
+
+    void Hide() => Put(new CustomersActions.AddDialog.Hide());
+
+    protected override void OnInitialized()
+    {
+        UseState(state => isSaving = state.Customers.IsSaving);
+    }
+}

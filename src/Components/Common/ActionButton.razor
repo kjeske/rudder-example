@@ -6,13 +6,13 @@
     public string Type { get; set; }
 
     [Parameter]
-    public bool IsFetching { get; set; } = false;
+    public bool IsFetching { get; set; }
 
     [Parameter]
     public bool IsPrimary { get; set; } = true;
 
     [Parameter]
-    public Func<Task> OnClick { get; set; }
+    public Action OnClick { get; set; }
 }
 
 <button type=@Type onclick=@OnClick class=@($"action-button waves-effect waves-light btn-large {(IsPrimary ? "" : "blue-grey lighten-2")}") disabled=@(IsFetching ? "disabled" : null)>

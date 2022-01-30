@@ -1,0 +1,8 @@
+﻿.container {
+    background: #fff;
+    padding: 40px;
+    min-height: 600px;
+    box-shadow: #0000000a 1px 1px 6px;
+    border-radius: 4px;
+    min-width: 700px;
+}

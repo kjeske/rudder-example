@@ -2,9 +2,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using RudderExample.Database;
 using Rudder;
-using RudderExample.State;
+using RudderExample.Database;
 
 namespace RudderExample
 {

@@ -1,14 +1,12 @@
-@using RudderExample.State.Customers
-
 @code {
     [Parameter]
-    public ImmutableList<CustomerListItem> Items { get; set; }
+    public IEnumerable<CustomerListItem> Items { get; set; }
 
     [Parameter]
     public bool IsFetching { get; set; }
 
     [Parameter]
-    public AsyncAction<string> OnRemove { get; set; }
+    public Action<string> OnRemove { get; set; }
 }
 
 @if (IsFetching)
